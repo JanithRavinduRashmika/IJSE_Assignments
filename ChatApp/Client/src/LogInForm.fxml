@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: #1c2e4a;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LogInFormController">
+    <children>
+        <ImageView layoutX="100.0" layoutY="36.0">
+            <image>
+                <Image url="@icons/Chat.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="112.0" layoutY="150.0" prefHeight="38.0" prefWidth="77.0" text="Log In" textFill="#95a5a6">
+            <font>
+                <Font name="System Bold Italic" size="26.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="45.0" layoutY="215.0" AnchorPane.bottomAnchor="200.0" AnchorPane.topAnchor="215.0">
+            <image>
+                <Image url="@icons/Password.png" />
+            </image>
+        </ImageView>
+        <JFXTextField fx:id="txtUserName" focusColor="#95a5a6" style="-fx-text-fill: #ffffff;" labelFloat="true" layoutX="100.0" layoutY="215.0" onMouseClicked="#txtUserNameClickOnAction" prefHeight="35.0" prefWidth="157.0" promptText="User Name" unFocusColor="#95a5a6" AnchorPane.bottomAnchor="200.0" AnchorPane.topAnchor="215.0">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+        </JFXTextField>
+        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="45.0" layoutY="273.0">
+            <image>
+                <Image url="@icons/User.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="lblLoginError" layoutX="45.0" layoutY="328.0" opacity="0.0" prefHeight="26.0" prefWidth="228.0" text="!!User Name or Password Invalid!!" textFill="RED">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <JFXButton buttonType="RAISED" layoutX="108.0" layoutY="369.0" onAction="#btnLogInOnAction" prefHeight="39.0" prefWidth="85.0" ripplerFill="WHITE" style="-fx-background-color: #95a5a6; -fx-background-radius: 40;" text="Log In" textFill="#1c2e4a">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </JFXButton>
+        <JFXPasswordField fx:id="txtPassword" focusColor="#95a5a6" style="-fx-text-fill: #ffffff;" labelFloat="true" layoutX="100.0" layoutY="273.0" onAction="#txtPasswordClickOnAction" onMouseClicked="#txtPasswordClickOnAction" prefHeight="35.0" prefWidth="157.0" promptText="Password" unFocusColor="#95a5a6">
+            <font>
+                <Font name="Calibri Bold" size="15.0" />
+            </font>
+        </JFXPasswordField>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>

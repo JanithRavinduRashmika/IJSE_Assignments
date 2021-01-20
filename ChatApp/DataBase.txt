@@ -1,0 +1,19 @@
+CREATE database playTech;
+Use database playTech;
+
+
+CREATE TABLE User(
+	UserName VARCHAR(50) NOT NULL,
+	Password VARCHAR(50) NOT NULL,
+	CONSTRAINT PRIMARY KEY(UserName)
+);
+
+
+
+INSERT into User values('janith','janith');
+
+INSERT into User values('sonal','sonal');
+
+INSERT into User values('ishanka','ishanka');
+
+INSERT into User values('danuja','danuja');
