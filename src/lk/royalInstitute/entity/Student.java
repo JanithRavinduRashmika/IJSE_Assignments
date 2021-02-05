@@ -3,6 +3,7 @@ package lk.royalInstitute.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -15,19 +16,9 @@ public class Student {
     private String gender;
 
     @OneToMany(mappedBy = "student")
-    private Registration registration;
+    private List<Registration> registrations;
 
     public Student() {
-    }
-
-    public Student(String id, String studentName, String address, String contact, String date, String gender, Registration registration) {
-        this.setId(id);
-        this.setStudentName(studentName);
-        this.setAddress(address);
-        this.setContact(contact);
-        this.setDate(date);
-        this.setGender(gender);
-        this.setRegistration(registration);
     }
 
 
@@ -79,12 +70,12 @@ public class Student {
         this.gender = gender;
     }
 
-    public Registration getRegistration() {
-        return registration;
+    public List<Registration> getRegistrations() {
+        return registrations;
     }
 
-    public void setRegistration(Registration registration) {
-        this.registration = registration;
+    public void setRegistrations(List<Registration> registrations) {
+        this.registrations = registrations;
     }
 
     @Override
@@ -96,7 +87,7 @@ public class Student {
                 ", contact='" + contact + '\'' +
                 ", date='" + date + '\'' +
                 ", gender='" + gender + '\'' +
-                ", registration=" + registration +
+                ", registrations=" + registrations +
                 '}';
     }
 }
