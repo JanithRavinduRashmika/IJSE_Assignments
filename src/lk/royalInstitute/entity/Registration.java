@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Registration {
+public class Registration implements SuperEntity{
     @Id
     private int regNo;
     private String regDate;

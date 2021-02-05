@@ -1,12 +1,14 @@
 package lk.royalInstitute.entity;
 
+import net.bytebuddy.implementation.bind.annotation.Super;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class Student {
+public class Student implements SuperEntity {
     @Id
     private String id;
     private String studentName;

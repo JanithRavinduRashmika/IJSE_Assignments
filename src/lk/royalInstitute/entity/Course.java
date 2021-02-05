@@ -6,7 +6,7 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
-public class Course {
+public class Course implements SuperEntity {
     @Id
     private String code;
     private String courseName;
