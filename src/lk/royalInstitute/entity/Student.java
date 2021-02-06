@@ -23,6 +23,24 @@ public class Student implements SuperEntity {
     public Student() {
     }
 
+    public Student(String id, String studentName, String address, String contact, String date, String gender, List<Registration> registrations) {
+        this.id = id;
+        this.studentName = studentName;
+        this.address = address;
+        this.contact = contact;
+        this.date = date;
+        this.gender = gender;
+        this.registrations = registrations;
+    }
+
+    public Student(String id, String studentName, String address, String contact, String date, String gender) {
+        this.id = id;
+        this.studentName = studentName;
+        this.address = address;
+        this.contact = contact;
+        this.date = date;
+        this.gender = gender;
+    }
 
     public String getId() {
         return id;
