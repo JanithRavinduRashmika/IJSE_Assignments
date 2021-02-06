@@ -89,4 +89,21 @@ public class StudentDAOImpl implements StudentDAO {
             session.close();
         }
     }
+
+    @Override
+    public String getNextID() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query query = session.createNativeQuery("SELECT id FROM Student ORDER BY id DESC LIMIT 1");
+        String s  = (String) query.uniqueResult();
+        String nextID ="";
+        if (s==null){
+            nextID = "S10000";
+        }else{
+            int i = Integer.parseInt(s.substring(1,5));
+            nextID = "S"+(i+1);
+        }
+        session.close();
+        return nextID;
+
+    }
 }

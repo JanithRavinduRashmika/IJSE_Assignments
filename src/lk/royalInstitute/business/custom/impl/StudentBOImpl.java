@@ -64,4 +64,9 @@ public class StudentBOImpl implements StudentBO {
         }
         return studentDTOList;
     }
+
+    @Override
+    public String getNextID() throws Exception {
+        return studentDAO.getNextID();
+    }
 }
