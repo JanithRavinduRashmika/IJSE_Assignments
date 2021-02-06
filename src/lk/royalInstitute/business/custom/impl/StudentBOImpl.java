@@ -15,7 +15,7 @@ public class StudentBOImpl implements StudentBO {
     StudentDAO studentDAO = DAOFactory.getInstance().getDAO(DAOType.STUDENT);
 
     @Override
-    public boolean saveStudent(StudentDTO studentDTO) throws Exception {
+    public boolean addStudent(StudentDTO studentDTO) throws Exception {
         return studentDAO.add(new Student(studentDTO.getId(),
                 studentDTO.getStudentName(),
                 studentDTO.getAddress(),

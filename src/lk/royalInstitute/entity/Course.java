@@ -27,6 +27,13 @@ public class Course implements SuperEntity {
         this.registrations = registrations;
     }
 
+    public Course(String code, String courseName, String courseType, String duration) {
+        this.code = code;
+        this.courseName = courseName;
+        this.courseType = courseType;
+        this.duration = duration;
+    }
+
     public String getCode() {
         return code;
     }

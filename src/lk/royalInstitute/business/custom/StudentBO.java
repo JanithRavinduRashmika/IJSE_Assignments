@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StudentBO extends SuperBO {
 
-    public boolean saveStudent(StudentDTO studentDTO) throws Exception;
+    public boolean addStudent(StudentDTO studentDTO) throws Exception;
 
     public boolean deleteStudent(String id) throws Exception;
 
