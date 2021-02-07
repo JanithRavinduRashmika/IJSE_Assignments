@@ -20,3 +20,29 @@
     -fx-background-image: url(../images/students.jpg);
     -fx-background-size: cover;
 }
+
+#txtName{
+    -fx-background-color: white;
+}
+
+#dpkDOB{
+    -fx-prompt-text-fill: white;
+}
+
+.jfx-date-picker > .jfx-text-field {
+    -jfx-label-float: true;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.jfx-text-field, .jfx-combo-box{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%);
+    -fx-prompt-text-fill: white ;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.jfx-date-picker{
+    -fx-background-color: white;
+}
