@@ -2,3 +2,21 @@
     -fx-background-image: url(../images/background.png);
     -fx-background-size: cover;
 }
+
+#btnHome{
+    -fx-background-radius: 50px 50px 50px 50px;
+}
+
+#lblManageStudents{
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30px;
+    -fx-padding: 0 0 0 20;
+}
+
+#tblStudent{
+    -fx-background-radius: 0px 0px 50px 50px;
+    -fx-background-image: url(../images/students.jpg);
+    -fx-background-size: cover;
+}
