@@ -99,7 +99,7 @@ public class StudentDAOImpl implements StudentDAO {
         if (s==null){
             nextID = "S10000";
         }else{
-            int i = Integer.parseInt(s.substring(1,5));
+            int i = Integer.parseInt(s.substring(1,6));
             nextID = "S"+(i+1);
         }
         session.close();

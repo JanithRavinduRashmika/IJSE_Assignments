@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +22,7 @@ import lk.royalInstitute.view.tm.StudentTM;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentFormController {
 
@@ -97,26 +100,57 @@ public class StudentFormController {
 
     public void initialize(){
         cmbGender.setItems(genderList);
-        tblStudent.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
-        tblStudent.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("studentName"));
-        tblStudent.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
-        tblStudent.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("contact"));
-        tblStudent.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("date"));
-        tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
+        clmID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        clmName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        clmAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        clmContactNumber.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        clmDOB.setCellValueFactory(new PropertyValueFactory<>("date"));
+        clmGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+
+
+        tblStudent.getSelectionModel().selectedItemProperty().
+                addListener((observable, oldValue, newValue) -> {
+                    try {
+                        setData(newValue);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+
 
         loadAllCustomers();
     }
 
+
+
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        Optional<ButtonType> result = new Alert(Alert.AlertType.WARNING, "Are you want to delete this recode",
+                ButtonType.YES, ButtonType.NO).showAndWait();
+        if (result.get() == ButtonType.YES){
+            try {
+                boolean b = studentBO.deleteStudent(txtStudentID.getText().trim());
+                if (b){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Delete Successful").showAndWait();
+                    clear();
+                    disableFields();
+                    loadAllCustomers();
+                    setButtonState(false,true,true,true);
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"Delete Unsuccessful").showAndWait();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
     void btnNewStudentOnAction(ActionEvent event) {
+        clear();
         loadNextID();
         enableFields();
-        btnSave.setDisable(false);
+        setButtonState(true,false,true,true);
     }
 
     @FXML
@@ -127,7 +161,9 @@ public class StudentFormController {
             if (b){
                 new Alert(Alert.AlertType.CONFIRMATION,"Student Added Successful").showAndWait();
                 clear();
-                btnSave.setDisable(true);
+                disableFields();
+                loadAllCustomers();
+                setButtonState(false,true,true,true);
             }else{
                 new Alert(Alert.AlertType.ERROR,"Student Added Unsuccessful").showAndWait();
             }
@@ -138,7 +174,21 @@ public class StudentFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        StudentDTO data = getData();
+        try {
+            boolean b = studentBO.updateStudent(data);
+            if (b){
+                new Alert(Alert.AlertType.CONFIRMATION,"Update Successful").showAndWait();
+                clear();
+                loadAllCustomers();
+                disableFields();
+                setButtonState(false,true,true,true);
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Update Unsuccessful").showAndWait();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -198,7 +248,6 @@ public class StudentFormController {
         txtContactNumber.clear();
         txtDOB.clear();
         txtGender.clear();
-        disableFields();
     }
 
     private void setDOB(){
@@ -227,5 +276,23 @@ public class StudentFormController {
                     studentDTO.getGender()));
         }
         tblStudent.setItems(studentTMS);
+    }
+
+    private void setData(StudentTM newValue) {
+        txtStudentID.setText(newValue.getId());
+        txtStudentName.setText(newValue.getStudentName());
+        txtAddress.setText(newValue.getAddress());
+        txtContactNumber.setText(newValue.getContact());
+        txtDOB.setText(newValue.getDate());
+        txtGender.setText(newValue.getGender());
+        enableFields();
+        setButtonState(false,true,false,false);
+    }
+
+    private void setButtonState(Boolean newStudent, Boolean save, Boolean update, Boolean delete){
+        btnNewStudent.setDisable(newStudent);
+        btnSave.setDisable(save);
+        btnUpdate.setDisable(update);
+        btnDelete.setDisable(delete);
     }
 }
