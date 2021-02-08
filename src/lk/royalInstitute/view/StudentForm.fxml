@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -7,17 +8,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" stylesheets="@../assets/css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.StudentFormController">
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../assets/css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.StudentFormController">
    <children>
       <AnchorPane layoutX="103.0" layoutY="181.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="lblManageStudents" layoutX="144.0" layoutY="13.0" prefHeight="70.0" prefWidth="430.0" text="Manage Students" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="15.0">
+            <Label fx:id="lblManageStudents" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="16.0" prefHeight="70.0" prefWidth="600.0" text="Manage Students" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="15.0">
                <effect>
                   <DropShadow height="28.91" offsetX="4.0" offsetY="5.0" radius="14.14" spread="0.48" width="29.65" />
                </effect>
@@ -34,45 +36,70 @@
                   <DropShadow height="32.86" offsetX="2.0" offsetY="5.0" radius="19.8825" spread="0.4" width="48.67" />
                </effect>
             </Button>
+            <JFXButton fx:id="btnNewStudent" alignment="CENTER" buttonType="RAISED" layoutX="665.0" layoutY="38.0" onAction="#btnNewStudentOnAction" prefHeight="40.0" prefWidth="120.0" text="+ New Student" textFill="WHITE" AnchorPane.rightAnchor="65.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblStudent" layoutX="116.0" layoutY="419.0" prefHeight="134.0" prefWidth="214.0">
+      <TableView fx:id="tblStudent" layoutX="99.0" layoutY="390.0" prefHeight="260.0" prefWidth="1070.0" AnchorPane.leftAnchor="65.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="clmID" prefWidth="103.0" text="ID" />
+          <TableColumn fx:id="clmName" prefWidth="209.66659545898438" text="Name" />
+            <TableColumn fx:id="clmAddress" prefWidth="366.00006103515625" text="Address" />
+            <TableColumn fx:id="clmContactNumber" prefWidth="192.99993896484375" text="Contact Number" />
+            <TableColumn fx:id="clmDOB" prefWidth="104.3333740234375" text="DOB" />
+            <TableColumn fx:id="clmGender" prefWidth="93.0" text="Gender" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtStudentID" alignment="CENTER" focusColor="WHITE" labelFloat="true" layoutX="116.0" layoutY="135.0" prefHeight="30.0" prefWidth="260.0" promptText="Student ID" unFocusColor="#002266" AnchorPane.leftAnchor="100.0">
+      <JFXTextField fx:id="txtStudentID" alignment="CENTER" disable="true" editable="false" focusColor="WHITE" labelFloat="true" layoutX="116.0" layoutY="135.0" prefHeight="30.0" prefWidth="375.0" promptText="Student ID" unFocusColor="#002266" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="135.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtStudentName" alignment="CENTER" labelFloat="true" layoutX="400.0" layoutY="135.0" prefHeight="30.0" prefWidth="260.0" promptText="Student Name" unFocusColor="#002266" AnchorPane.rightAnchor="100.0">
+      <JFXTextField fx:id="txtStudentName" alignment="CENTER" disable="true" labelFloat="true" layoutX="425.0" layoutY="135.0" prefHeight="30.0" prefWidth="375.0" promptText="Student Name" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="135.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" alignment="CENTER" labelFloat="true" layoutX="116.0" layoutY="194.0" prefHeight="30.0" prefWidth="260.0" promptText="Address" unFocusColor="#002266" AnchorPane.leftAnchor="100.0">
+      <JFXTextField fx:id="txtAddress" alignment="CENTER" disable="true" labelFloat="true" layoutX="116.0" layoutY="194.0" prefHeight="30.0" prefWidth="375.0" promptText="Address" unFocusColor="#002266" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="185.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContactNumber" alignment="CENTER" labelFloat="true" layoutX="400.0" layoutY="194.0" prefHeight="30.0" prefWidth="260.0" promptText="Contact Number" unFocusColor="#002266" AnchorPane.rightAnchor="100.0">
+      <JFXTextField fx:id="txtContactNumber" alignment="CENTER" disable="true" labelFloat="true" layoutX="400.0" layoutY="194.0" prefHeight="30.0" prefWidth="375.0" promptText="Contact Number" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="185.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtGender" alignment="CENTER" labelFloat="true" layoutX="440.0" layoutY="265.0" prefHeight="30.0" prefWidth="260.0" promptText="Gender" unFocusColor="#002266">
+      <JFXTextField fx:id="txtGender" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="440.0" layoutY="265.0" prefHeight="30.0" prefWidth="375.0" promptText="Gender" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="235.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbGender" editable="true" layoutX="650.0" layoutY="265.0" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" visibleRowCount="2" />
-      <JFXTextField fx:id="txtDOB" alignment="CENTER" labelFloat="true" layoutX="100.0" layoutY="265.0" prefHeight="30.0" prefWidth="260.0" promptText="Date Of Birth" unFocusColor="#002266">
+      <JFXTextField fx:id="txtDOB" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="100.0" layoutY="265.0" prefHeight="30.0" prefWidth="375.0" promptText="Date Of Birth" unFocusColor="#002266" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="235.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXDatePicker fx:id="dpkDOB" defaultColor="#002266" editable="false" layoutX="324.0" layoutY="265.0" prefHeight="30.0" prefWidth="30.0" />
+      <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" disable="true" layoutX="1232.0" layoutY="138.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="120.0" text="Save" textFill="WHITE" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" alignment="CENTER" buttonType="RAISED" disable="true" layoutX="1190.0" layoutY="188.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="120.0" text="Update" textFill="WHITE" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="187.5">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" alignment="CENTER" buttonType="RAISED" disable="true" layoutX="1190.0" layoutY="238.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="120.0" text="Delete" textFill="WHITE" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="240.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXDatePicker fx:id="dpkDOB" defaultColor="#002266" disable="true" layoutX="404.0" layoutY="235.0" onAction="#dpkDOBOnAction" prefHeight="30.0" prefWidth="34.0" />
+      <JFXComboBox fx:id="cmbGender" disable="true" layoutX="865.0" layoutY="235.0" onAction="#cmbGenderOnAction" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" />
+      <TextField fx:id="txtSearch" layoutX="275.0" layoutY="319.0" prefHeight="30.0" prefWidth="500.0" AnchorPane.leftAnchor="207.5" />
    </children>
 </AnchorPane>

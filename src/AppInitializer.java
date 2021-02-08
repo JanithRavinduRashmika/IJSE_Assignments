@@ -15,6 +15,7 @@ public class AppInitializer extends Application{
         Parent root = FXMLLoader.load(this.getClass().getResource("lk/royalInstitute/view/StudentForm.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(false);
         primaryStage.show();
     }
 }
