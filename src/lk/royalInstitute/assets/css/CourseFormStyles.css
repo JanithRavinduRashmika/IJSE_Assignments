@@ -4,52 +4,26 @@
 }
 
 #btnHome{
-    -fx-background-radius: 50px 50px 50px 50px;
+    -fx-background-radius: 50 50 50 50;
 }
 
-#lblManageStudents{
+#lblManageCourses{
     -fx-text-fill: white;
     -fx-font-size: 48px;
     -fx-font-weight: bold;
-    -fx-background-radius: 30px;
-    -fx-padding: 0 0 0 20;
 }
 
-#tblStudent{
-    -fx-background-radius: 0px 0px 50px 50px;
+#btnNewCourse{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #005312 0%, #00d404 50%, #005312 100%);
 }
 
-#txtName{
-    -fx-background-color: white;
-}
-
-#dpkDOB{
-    -fx-prompt-text-fill: white;
-}
-
-.jfx-date-picker > .jfx-text-field {
-    -jfx-label-float: true;
-    -fx-alignment: center;
-    -fx-font-weight: bold;
-}
-
-.jfx-text-field, .jfx-combo-box{
+.jfx-text-field{
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%);
     -fx-prompt-text-fill: white ;
     -fx-text-fill: white;
     -fx-font-weight: bold;
     -fx-alignment: center;
 }
-
-.jfx-date-picker{
-    -fx-background-color: #0078d4;
-}
-
-#btnNewStudent{
-    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #005312 0%, #00d404 50%, #005312 100%);
-}
-
-
 
 #btnSave{
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #533700 0%, #d45c00 50%, #533700 100%);

@@ -75,7 +75,7 @@ public class CourseDAOImpl implements CourseDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("from " + Course.class);
+            Query query = session.createQuery("from Course" );
             List list = query.list();
             transaction.commit();
             return list;

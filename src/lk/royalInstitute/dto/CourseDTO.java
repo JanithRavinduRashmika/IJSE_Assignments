@@ -3,16 +3,16 @@ package lk.royalInstitute.dto;
 public class CourseDTO implements SuperDTO{
     private String code;
     private String courseName;
-    private String courseType;
+    private double courseFee;
     private String duration;
 
     public CourseDTO() {
     }
 
-    public CourseDTO(String code, String courseName, String courseType, String duration) {
+    public CourseDTO(String code, String courseName, double courseFee, String duration) {
         this.code = code;
         this.courseName = courseName;
-        this.courseType = courseType;
+        this.courseFee = courseFee;
         this.duration = duration;
     }
 
@@ -32,12 +32,12 @@ public class CourseDTO implements SuperDTO{
         this.courseName = courseName;
     }
 
-    public String getCourseType() {
-        return courseType;
+    public double getCourseFee() {
+        return courseFee;
     }
 
-    public void setCourseType(String courseType) {
-        this.courseType = courseType;
+    public void setCourseFee(double courseFee) {
+        this.courseFee = courseFee;
     }
 
     public String getDuration() {

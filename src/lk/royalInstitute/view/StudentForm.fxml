@@ -17,7 +17,7 @@
 
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../assets/css/StudentFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.StudentFormController">
    <children>
-      <AnchorPane layoutX="103.0" layoutY="181.0" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="103.0" layoutY="181.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="lblManageStudents" alignment="CENTER" contentDisplay="CENTER" layoutX="326.0" layoutY="16.0" prefHeight="70.0" prefWidth="600.0" text="Manage Students" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="15.0">
                <effect>

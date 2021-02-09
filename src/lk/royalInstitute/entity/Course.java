@@ -10,7 +10,7 @@ public class Course implements SuperEntity {
     @Id
     private String code;
     private String courseName;
-    private String courseType;
+    private double courseFee;
     private String duration;
 
     @OneToMany(mappedBy = "course")
@@ -19,18 +19,18 @@ public class Course implements SuperEntity {
     public Course() {
     }
 
-    public Course(String code, String courseName, String courseType, String duration, List<Registration> registrations) {
+    public Course(String code, String courseName, double courseFee, String duration, List<Registration> registrations) {
         this.code = code;
         this.courseName = courseName;
-        this.courseType = courseType;
+        this.courseFee = courseFee;
         this.duration = duration;
         this.registrations = registrations;
     }
 
-    public Course(String code, String courseName, String courseType, String duration) {
+    public Course(String code, String courseName, double courseFee, String duration) {
         this.code = code;
         this.courseName = courseName;
-        this.courseType = courseType;
+        this.courseFee = courseFee;
         this.duration = duration;
     }
 
@@ -50,12 +50,12 @@ public class Course implements SuperEntity {
         this.courseName = courseName;
     }
 
-    public String getCourseType() {
-        return courseType;
+    public double getCourseFee() {
+        return courseFee;
     }
 
-    public void setCourseType(String courseType) {
-        this.courseType = courseType;
+    public void setCourseFee(double courseFee) {
+        this.courseFee = courseFee;
     }
 
     public String getDuration() {
@@ -72,16 +72,5 @@ public class Course implements SuperEntity {
 
     public void setRegistrations(List<Registration> registrations) {
         this.registrations = registrations;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "code='" + code + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", courseType='" + courseType + '\'' +
-                ", duration='" + duration + '\'' +
-                ", registrations=" + registrations +
-                '}';
     }
 }

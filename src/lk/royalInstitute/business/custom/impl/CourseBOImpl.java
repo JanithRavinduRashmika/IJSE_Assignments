@@ -18,7 +18,7 @@ public class CourseBOImpl implements CourseBO {
     public boolean addCourse(CourseDTO courseDTO) throws Exception {
         return courseDAO.add(new Course(courseDTO.getCode(),
                 courseDTO.getCourseName(),
-                courseDTO.getCourseType(),
+                courseDTO.getCourseFee(),
                 courseDTO.getDuration()));
     }
 
@@ -31,7 +31,7 @@ public class CourseBOImpl implements CourseBO {
     public boolean updateCourse(CourseDTO courseDTO) throws Exception {
         return courseDAO.update(new Course(courseDTO.getCode(),
                 courseDTO.getCourseName(),
-                courseDTO.getCourseType(),
+                courseDTO.getCourseFee(),
                 courseDTO.getDuration()));
     }
 
@@ -40,7 +40,7 @@ public class CourseBOImpl implements CourseBO {
         Course course = courseDAO.get(id);
         return new CourseDTO(course.getCode(),
                 course.getCourseName(),
-                course.getCourseType(),
+                course.getCourseFee(),
                 course.getDuration());
     }
 
@@ -51,7 +51,7 @@ public class CourseBOImpl implements CourseBO {
         for (Course course : courseList) {
             courseDTOList.add(new CourseDTO(course.getCode(),
                     course.getCourseName(),
-                    course.getCourseType(),
+                    course.getCourseFee(),
                     course.getDuration()));
         }
         return courseDTOList;
