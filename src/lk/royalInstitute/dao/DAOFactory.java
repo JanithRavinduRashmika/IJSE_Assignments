@@ -1,5 +1,7 @@
 package lk.royalInstitute.dao;
 
+import lk.royalInstitute.dao.custom.impl.CourseDAOImpl;
+import lk.royalInstitute.dao.custom.impl.RegistrationDAOImpl;
 import lk.royalInstitute.dao.custom.impl.StudentDAOImpl;
 
 public class DAOFactory {
@@ -16,6 +18,10 @@ public class DAOFactory {
         switch (daoType){
             case STUDENT:
                 return (T) new StudentDAOImpl();
+            case COURSE:
+                return (T) new CourseDAOImpl();
+            case REGISTRATION:
+                return (T) new RegistrationDAOImpl();
             default:
                 return null;
         }

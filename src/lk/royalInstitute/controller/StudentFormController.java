@@ -111,7 +111,10 @@ public class StudentFormController {
         tblStudent.getSelectionModel().selectedItemProperty().
                 addListener((observable, oldValue, newValue) -> {
                     try {
-                        setData(newValue);
+                        if (newValue != null){
+                            setData(newValue);
+                        }
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -289,7 +292,7 @@ public class StudentFormController {
         setButtonState(false,true,false,false);
     }
 
-    private void setButtonState(Boolean newStudent, Boolean save, Boolean update, Boolean delete){
+    private void setButtonState(boolean newStudent, boolean save, boolean update, boolean delete){
         btnNewStudent.setDisable(newStudent);
         btnSave.setDisable(save);
         btnUpdate.setDisable(update);

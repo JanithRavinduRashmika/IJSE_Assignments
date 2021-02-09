@@ -56,4 +56,9 @@ public class CourseBOImpl implements CourseBO {
         }
         return courseDTOList;
     }
+
+    @Override
+    public String getNextId() throws Exception {
+        return courseDAO.getNextID();
+    }
 }

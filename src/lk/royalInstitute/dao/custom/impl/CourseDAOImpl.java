@@ -5,6 +5,7 @@ import lk.royalInstitute.entity.Course;
 import lk.royalInstitute.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -58,31 +59,32 @@ public class CourseDAOImpl implements CourseDAO {
     @Override
     public Course get(String s) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        try {
-            Transaction transaction = session.beginTransaction();
-            Course course = session.get(Course.class, s);
-            transaction.commit();
-            return course;
-        }catch (Exception e){
-            return null;
-        }finally {
-            session.close();
-        }
+        Course course = session.get(Course.class, s);
+        session.close();
+        return course;
     }
 
     @Override
     public List<Course> getAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        try {
-            Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("from Course" );
-            List list = query.list();
-            transaction.commit();
-            return list;
-        }catch (Exception e){
-            return null;
-        }finally {
-            session.close();
+        Query query = session.createQuery("from Course" );
+        List list = query.list();
+        session.close();
+        return list;
+    }
+
+    @Override
+    public String getNextID() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT code FROM course ORDER BY code DESC LIMIT 1");
+        String s = (String) nativeQuery.uniqueResult();
+        String nextID = "";
+        if (s==null){
+            nextID = "CT1000";
+        }else{
+            int i = Integer.parseInt(s.substring(2, 6));
+            nextID = "CT"+(i+1);
         }
+        return nextID;
     }
 }
