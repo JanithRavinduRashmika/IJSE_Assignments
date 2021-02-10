@@ -62,9 +62,7 @@ public class RegistrationDAOImpl implements RegistrationDAO {
     public Registration get(String s) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         try{
-            Transaction transaction = session.beginTransaction();
             Registration registration = session.get(Registration.class, s);
-            transaction.commit();
             return registration;
 
         }catch (Exception e){
@@ -78,12 +76,9 @@ public class RegistrationDAOImpl implements RegistrationDAO {
     public List<Registration> getAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
         try{
-            Transaction transaction = session.beginTransaction();
             Query query = session.createQuery("from " + Registration.class);
             List list = query.list();
-            transaction.commit();
             return list;
-
         }catch (Exception e){
             return null;
         }finally {

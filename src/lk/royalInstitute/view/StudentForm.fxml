@@ -43,7 +43,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <TableView fx:id="tblStudent" layoutX="99.0" layoutY="390.0" prefHeight="260.0" prefWidth="1070.0" AnchorPane.leftAnchor="65.0">
+      <TableView fx:id="tblStudent" layoutX="166.0" layoutY="388.0" prefHeight="260.0" prefWidth="1070.0" AnchorPane.leftAnchor="166.0">
         <columns>
           <TableColumn fx:id="clmID" prefWidth="103.0" text="ID" />
           <TableColumn fx:id="clmName" prefWidth="209.66659545898438" text="Name" />
@@ -99,7 +99,7 @@
          </font>
       </JFXButton>
       <JFXDatePicker fx:id="dpkDOB" defaultColor="#002266" disable="true" layoutX="404.0" layoutY="235.0" onAction="#dpkDOBOnAction" prefHeight="30.0" prefWidth="34.0" />
-      <JFXComboBox fx:id="cmbGender" disable="true" layoutX="865.0" layoutY="235.0" onAction="#cmbGenderOnAction" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" />
-      <TextField fx:id="txtSearch" layoutX="275.0" layoutY="319.0" prefHeight="30.0" prefWidth="500.0" AnchorPane.leftAnchor="207.5" />
+      <JFXComboBox fx:id="cmbGender" disable="true" layoutX="901.0" layoutY="238.0" onAction="#cmbGenderOnAction" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" />
+      <TextField fx:id="txtSearch" layoutX="275.0" layoutY="319.0" prefHeight="30.0" prefWidth="500.0" AnchorPane.leftAnchor="207.5" AnchorPane.topAnchor="320.0" />
    </children>
 </AnchorPane>

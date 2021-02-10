@@ -6,7 +6,9 @@ import lk.royalInstitute.dao.DAOType;
 import lk.royalInstitute.dao.SuperDAO;
 import lk.royalInstitute.dao.custom.RegistrationDAO;
 import lk.royalInstitute.dto.RegistrationDTO;
+import lk.royalInstitute.entity.Course;
 import lk.royalInstitute.entity.Registration;
+import lk.royalInstitute.entity.Student;
 
 import java.util.List;
 
@@ -15,7 +17,11 @@ public class RegistrationBOImpl implements RegistrationBO {
     RegistrationDAO registrationDAO = DAOFactory.getInstance().getDAO(DAOType.REGISTRATION);
     @Override
     public boolean addRegistration(RegistrationDTO registrationDTO) throws Exception {
-        return false;
+        return registrationDAO.add(new Registration(registrationDTO.getRegNo(),
+                registrationDTO.getRegDate(),
+                registrationDTO.getRegFee(),
+                new Student(registrationDTO.getStudentId()),
+                new Course(registrationDTO.getCourseId())));
     }
 
     @Override

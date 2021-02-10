@@ -34,6 +34,10 @@ public class Course implements SuperEntity {
         this.duration = duration;
     }
 
+    public Course(String code) {
+        this.code = code;
+    }
+
     public String getCode() {
         return code;
     }

@@ -60,34 +60,19 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public Student get(String s) throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        try{
-            Transaction transaction = session.beginTransaction();
-            Student student = session.get(Student.class, s);
-            transaction.commit();
-            return student;
+        Student student = session.get(Student.class, s);
+        session.close();
+        return student;
 
-        }catch (Exception e){
-            return null;
-        }finally {
-            session.close();
-        }
     }
 
     @Override
     public List<Student> getAll() throws Exception {
         Session session = FactoryConfiguration.getInstance().getSession();
-        try{
-            Transaction transaction = session.beginTransaction();
-            Query query = session.createQuery("from Student");
-            List list = query.list();
-            transaction.commit();
-            return list;
-
-        }catch (Exception e){
-            return null;
-        }finally {
-            session.close();
-        }
+        Query query = session.createQuery("from Student");
+        List list = query.list();
+        session.close();
+        return list;
     }
 
     @Override

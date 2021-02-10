@@ -31,7 +31,7 @@ public class CourseDAOImpl implements CourseDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         try {
             Transaction transaction = session.beginTransaction();
-            session.save(session.load(Course.class,s));
+            session.delete(session.load(Course.class,s));
             transaction.commit();
             return true;
         }catch (Exception e){

@@ -1,0 +1,50 @@
+#root{
+    -fx-background-image: url(../images/background.png);
+    -fx-background-size: cover;
+}
+
+#btnHome{
+    -fx-background-radius: 50px 50px 50px 50px;
+}
+
+#lblRegistration{
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 30px;
+    -fx-padding: 0 0 0 20;
+}
+
+#lblStudentName, #lblCourseName{
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 20;
+}
+
+.jfx-text-field{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%);
+    -fx-prompt-text-fill: white ;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+#btnNewRegistration{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #005312 0%, #00d404 50%, #005312 100%);
+}
+
+#btnSave{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #533700 0%, #d45c00 50%, #533700 100%);
+}
+
+#btnUpdate{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #5d5900 0%, #d4b100 50%, #5d5900 100%);
+}
+
+#btnDelete{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #530007 0%, #d4002a 50%, #530007 100%);
+}
+
+#btnCheck{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #5f0066 0%, #A103AC 50%, #5f0066 100%);
+}

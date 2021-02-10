@@ -1,6 +1,7 @@
 package lk.royalInstitute.business;
 
 import lk.royalInstitute.business.custom.impl.CourseBOImpl;
+import lk.royalInstitute.business.custom.impl.RegistrationBOImpl;
 import lk.royalInstitute.business.custom.impl.StudentBOImpl;
 
 public class BOFactory {
@@ -19,6 +20,8 @@ public class BOFactory {
                 return (T) new StudentBOImpl();
             case COURSE:
                 return (T) new CourseBOImpl();
+            case REGISTRATION:
+                return (T) new RegistrationBOImpl();
             default:
                 return null;
         }

@@ -8,18 +8,18 @@ public class RegistrationDTO implements SuperDTO {
     private int regNo;
     private String regDate;
     private double regFee;
-    private Student student;
-    private Course course;
+    private String studentId;
+    private String courseId;
 
     public RegistrationDTO() {
     }
 
-    public RegistrationDTO(int regNo, String regDate, double regFee, Student student, Course course) {
+    public RegistrationDTO(int regNo, String regDate, double regFee, String studentId, String courseId) {
         this.regNo = regNo;
         this.regDate = regDate;
         this.regFee = regFee;
-        this.student = student;
-        this.course = course;
+        this.studentId = studentId;
+        this.courseId = courseId;
     }
 
     public int getRegNo() {
@@ -46,30 +46,19 @@ public class RegistrationDTO implements SuperDTO {
         this.regFee = regFee;
     }
 
-    public Student getStudent() {
-        return student;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
-    public Course getCourse() {
-        return course;
+    public String getCourseId() {
+        return courseId;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    @Override
-    public String toString() {
-        return "RegistrationDTO{" +
-                "regNo=" + regNo +
-                ", regDate='" + regDate + '\'' +
-                ", regFee=" + regFee +
-                ", student=" + student +
-                ", course=" + course +
-                '}';
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 }
