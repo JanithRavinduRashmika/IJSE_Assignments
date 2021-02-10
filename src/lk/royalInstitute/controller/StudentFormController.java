@@ -10,9 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.royalInstitute.business.BOFactory;
 import lk.royalInstitute.business.BOType;
 import lk.royalInstitute.business.SuperBO;
@@ -20,6 +24,7 @@ import lk.royalInstitute.business.custom.StudentBO;
 import lk.royalInstitute.dto.StudentDTO;
 import lk.royalInstitute.view.tm.StudentTM;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -297,5 +302,16 @@ public class StudentFormController {
         btnSave.setDisable(save);
         btnUpdate.setDisable(update);
         btnDelete.setDisable(delete);
+    }
+
+    @FXML
+    void btnHomeOnAction(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) this.root.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(this.getClass().getResource("../view/MainForm.fxml"));
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
     }
 }

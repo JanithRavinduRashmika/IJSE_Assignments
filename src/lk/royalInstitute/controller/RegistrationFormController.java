@@ -4,11 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.royalInstitute.business.BOFactory;
 import lk.royalInstitute.business.BOType;
 import lk.royalInstitute.business.SuperBO;
@@ -19,6 +23,7 @@ import lk.royalInstitute.dto.CourseDTO;
 import lk.royalInstitute.dto.RegistrationDTO;
 import lk.royalInstitute.dto.StudentDTO;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -170,5 +175,16 @@ public class RegistrationFormController {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
 
+    }
+
+    @FXML
+    void btnHomeOnAction(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) this.root.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(this.getClass().getResource("../view/MainForm.fxml"));
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
     }
 }

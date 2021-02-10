@@ -13,12 +13,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../assets/css/CourseFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.CourseFormController">
    <children>
       <AnchorPane layoutX="156.0" layoutY="32.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="31.0" layoutY="27.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
+            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="31.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="50.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>

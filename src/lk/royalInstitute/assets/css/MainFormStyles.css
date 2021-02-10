@@ -1,0 +1,10 @@
+#root{
+    -fx-background-image: url(../images/background.png);
+    -fx-background-size: cover;
+}
+
+.jfx-button{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

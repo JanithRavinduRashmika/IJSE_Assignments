@@ -7,9 +7,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.royalInstitute.business.BOFactory;
 import lk.royalInstitute.business.BOType;
 import lk.royalInstitute.business.SuperBO;
@@ -21,6 +24,7 @@ import lk.royalInstitute.dao.custom.CourseDAO;
 import lk.royalInstitute.dto.CourseDTO;
 import lk.royalInstitute.view.tm.CourseTM;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -248,6 +252,17 @@ public class CourseFormController {
             nextID++;
             txtCourseID.setText("CT"+nextID);
         }
+    }
+
+    @FXML
+    void btnHomeOnAction(ActionEvent event) throws IOException {
+        Stage primaryStage = (Stage) this.root.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(this.getClass().getResource("../view/MainForm.fxml"));
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
     }
 
 }

@@ -24,7 +24,7 @@
                   <DropShadow height="28.91" offsetX="4.0" offsetY="5.0" radius="14.14" spread="0.48" width="29.65" />
                </effect>
             </Label>
-            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="38.0" layoutY="31.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" AnchorPane.topAnchor="25.0">
+            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="38.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="50.0" AnchorPane.topAnchor="25.0">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
