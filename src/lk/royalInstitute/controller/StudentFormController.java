@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.royalInstitute.business.BOFactory;
@@ -28,6 +29,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class StudentFormController {
 
@@ -100,6 +102,8 @@ public class StudentFormController {
     @FXML
     private TextField txtSearch;
 
+    private int activeFieldValue = 1;
+    private int[] validation = new int[5];
     private StudentBO studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
     private ObservableList<String> genderList = FXCollections.observableArrayList("Male","Female");
 
@@ -127,8 +131,112 @@ public class StudentFormController {
 
 
         loadAllCustomers();
+        validation();
     }
 
+    private void validation() {
+        txtStudentID.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }
+
+        });
+
+        txtStudentName.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }else if(!Pattern.compile("^[A-Z ]{1,50}$",Pattern.CASE_INSENSITIVE).matcher(txtStudentName.getText().trim()).matches()){
+                txtStudentName.setStyle("-fx-background-color: red");
+                validation[0]=0;
+            }else{
+                txtStudentName.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
+                validation[0]=1;
+            }
+
+        });
+
+        txtAddress.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }else if(!Pattern.compile("^[A-Z0-9:/, ]{1,200}$",Pattern.CASE_INSENSITIVE).matcher(txtAddress.getText()).matches()){
+                txtStudentName.setStyle("-fx-background-color: red");
+                validation[1]=0;
+            }else{
+                txtStudentName.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
+                validation[1]=1;
+            }
+
+        });
+
+        txtContactNumber.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }else if(!Pattern.compile("^[0-9]{10}$").matcher(txtContactNumber.getText().trim()).matches()){
+                txtStudentName.setStyle("-fx-background-color: red");
+                validation[2]=0;
+            }else{
+                txtStudentName.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
+                validation[2]=1;
+            }
+
+        });
+
+        txtDOB.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }
+
+        });
+
+        txtGender.setOnKeyReleased(e->{
+            KeyCode keyCode = e.getCode();
+            if(isEnteredKeyArrowKey(keyCode)){
+                traverse(keyCode);
+            }
+
+        });
+
+    }
+
+    private boolean isEnteredKeyArrowKey(KeyCode keyCode) {
+        if (keyCode == KeyCode.UP || keyCode == KeyCode.DOWN || keyCode == KeyCode.LEFT || keyCode == KeyCode.RIGHT || keyCode == KeyCode.ENTER){
+            return true;
+        }
+        return false;
+    }
+
+    private void traverse(KeyCode keyCode) {
+        switch (keyCode){
+            case UP: activeFieldValue-=2;break;
+            case DOWN: activeFieldValue+=2;break;
+            case LEFT: activeFieldValue--;break;
+            case RIGHT:
+            case ENTER:
+                activeFieldValue++;break;
+            default: break;
+        }
+
+        if (activeFieldValue<1){
+            activeFieldValue+=6;
+        }else if(activeFieldValue>6){
+            activeFieldValue-=6;
+        }
+
+        switch (activeFieldValue){
+            case 1:txtStudentID.requestFocus();break;
+            case 2:txtStudentName.requestFocus();break;
+            case 3:txtAddress.requestFocus();break;
+            case 4:txtContactNumber.requestFocus();break;
+            case 5:txtDOB.requestFocus();break;
+            case 6:txtGender.requestFocus();break;
+            default:break;
+        }
+    }
 
 
     @FXML
@@ -156,9 +264,12 @@ public class StudentFormController {
     @FXML
     void btnNewStudentOnAction(ActionEvent event) {
         clear();
+        activeFieldValue = 2;
         loadNextID();
         enableFields();
         setButtonState(true,false,true,true);
+        txtStudentName.requestFocus();
+
     }
 
     @FXML
