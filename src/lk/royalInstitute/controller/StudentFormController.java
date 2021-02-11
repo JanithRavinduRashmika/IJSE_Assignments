@@ -4,8 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,13 +18,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.royalInstitute.business.BOFactory;
 import lk.royalInstitute.business.BOType;
-import lk.royalInstitute.business.SuperBO;
 import lk.royalInstitute.business.custom.StudentBO;
 import lk.royalInstitute.dto.StudentDTO;
 import lk.royalInstitute.view.tm.StudentTM;
-
 import java.io.IOException;
-import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
@@ -122,6 +118,7 @@ public class StudentFormController {
                     try {
                         if (newValue != null){
                             setData(newValue);
+                            Arrays.fill(validation,1);
                         }
 
                     } catch (Exception e) {
@@ -131,6 +128,8 @@ public class StudentFormController {
 
 
         loadAllCustomers();
+
+
         validation();
     }
 
@@ -162,10 +161,10 @@ public class StudentFormController {
             if(isEnteredKeyArrowKey(keyCode)){
                 traverse(keyCode);
             }else if(!Pattern.compile("^[A-Z0-9:/, ]{1,200}$",Pattern.CASE_INSENSITIVE).matcher(txtAddress.getText()).matches()){
-                txtStudentName.setStyle("-fx-background-color: red");
+                txtAddress.setStyle("-fx-background-color: red");
                 validation[1]=0;
             }else{
-                txtStudentName.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
+                txtAddress.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
                 validation[1]=1;
             }
 
@@ -176,10 +175,10 @@ public class StudentFormController {
             if(isEnteredKeyArrowKey(keyCode)){
                 traverse(keyCode);
             }else if(!Pattern.compile("^[0-9]{10}$").matcher(txtContactNumber.getText().trim()).matches()){
-                txtStudentName.setStyle("-fx-background-color: red");
+                txtContactNumber.setStyle("-fx-background-color: red");
                 validation[2]=0;
             }else{
-                txtStudentName.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
+                txtContactNumber.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
                 validation[2]=1;
             }
 
@@ -274,50 +273,92 @@ public class StudentFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        StudentDTO data = getData();
-        try {
-            boolean b = studentBO.addStudent(data);
-            if (b){
-                new Alert(Alert.AlertType.CONFIRMATION,"Student Added Successful").showAndWait();
-                clear();
-                disableFields();
-                loadAllCustomers();
-                setButtonState(false,true,true,true);
-            }else{
-                new Alert(Alert.AlertType.ERROR,"Student Added Unsuccessful").showAndWait();
+
+        if(isAllFieldsValidate()){
+            StudentDTO data = getData();
+            try {
+                boolean b = studentBO.addStudent(data);
+                if (b){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Student Added Successful").showAndWait();
+                    clear();
+                    disableFields();
+                    loadAllCustomers();
+                    setButtonState(false,true,true,true);
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"Student Added Unsuccessful").showAndWait();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Field are empty").showAndWait();
+            showInvalidField();
         }
+
+    }
+
+    private void showInvalidField() {
+        for (int i = 0; i < 5; i++) {
+            if (validation[i]==0){
+                switch (i){
+                    case 0:txtStudentName.setStyle("-fx-background-color: red");break;
+                    case 1:txtAddress.setStyle("-fx-background-color: red");break;
+                    case 2:txtContactNumber.setStyle("-fx-background-color: red");break;
+                    case 3:txtDOB.setStyle("-fx-background-color: red");break;
+                    case 4:txtGender.setStyle("-fx-background-color: red");break;
+                    default:break;
+                }
+            }
+        }
+    }
+
+    private boolean isAllFieldsValidate() {
+        int res=1;
+        for (int i = 0; i < 5; i++) {
+            res*=validation[i];
+        }
+        if (res==1){
+            return true;
+        }
+        return false;
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        StudentDTO data = getData();
-        try {
-            boolean b = studentBO.updateStudent(data);
-            if (b){
-                new Alert(Alert.AlertType.CONFIRMATION,"Update Successful").showAndWait();
-                clear();
-                loadAllCustomers();
-                disableFields();
-                setButtonState(false,true,true,true);
-            }else{
-                new Alert(Alert.AlertType.ERROR,"Update Unsuccessful").showAndWait();
+        if (isAllFieldsValidate()){
+            StudentDTO data = getData();
+            try {
+                boolean b = studentBO.updateStudent(data);
+                if (b){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Update Successful").showAndWait();
+                    clear();
+                    loadAllCustomers();
+                    disableFields();
+                    setButtonState(false,true,true,true);
+                }else{
+                    new Alert(Alert.AlertType.ERROR,"Update Unsuccessful").showAndWait();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        }else{
+            new Alert(Alert.AlertType.ERROR,"Empty fields").showAndWait();
         }
+
     }
 
     @FXML
     void dpkDOBOnAction(ActionEvent event) {
-        setDOB();
+        txtDOB.setText(String.valueOf(dpkDOB.getValue()));
+        validation[3] = 1;
+        txtDOB.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
     }
 
     @FXML
     void cmbGenderOnAction(ActionEvent event) {
-        setGender();
+        txtGender.setText(cmbGender.getValue());
+        validation[4] = 1;
+        txtGender.setStyle("-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%)");
     }
 
     private void loadNextID() {
@@ -367,14 +408,6 @@ public class StudentFormController {
         txtContactNumber.clear();
         txtDOB.clear();
         txtGender.clear();
-    }
-
-    private void setDOB(){
-        txtDOB.setText(String.valueOf(dpkDOB.getValue()));
-    }
-
-    private void setGender(){
-        txtGender.setText(cmbGender.getValue());
     }
 
     private void loadAllCustomers(){
