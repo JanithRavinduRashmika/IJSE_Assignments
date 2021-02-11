@@ -1,0 +1,15 @@
+#root{
+    -fx-background-image: url(../images/background2.jpg);
+    -fx-background-position: center top;
+}
+
+#lblLogIn{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+}
+
+.jfx-text-field,.jfx-password-field{
+    -fx-prompt-text-fill: white;
+    -fx-font-weight: bold;
+}
