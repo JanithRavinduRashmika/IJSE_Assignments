@@ -44,4 +44,7 @@ public class MainFormController {
         primaryStage.centerOnScreen();
     }
 
+    public void btnRegistrationDetailsOnAction(ActionEvent actionEvent) throws IOException {
+        loadNextForm("RegistrationDetailsForm.fxml");
+    }
 }

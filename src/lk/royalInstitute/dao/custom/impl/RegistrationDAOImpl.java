@@ -5,6 +5,7 @@ import lk.royalInstitute.entity.Registration;
 import lk.royalInstitute.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.util.List;
@@ -84,5 +85,16 @@ public class RegistrationDAOImpl implements RegistrationDAO {
         }finally {
             session.close();
         }
+    }
+
+    @Override
+    public String getNextID() throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT regNo FROM registration ORDER BY regNo DESC LIMIT 1");
+        Object o = nativeQuery.uniqueResult();
+        if (o == null){
+            return 100000+"";
+        }
+        return ((int)o)+1+"";
     }
 }

@@ -19,4 +19,6 @@ public interface CourseBO extends SuperBO {
     public List<CourseDTO> getAllCourses() throws Exception;
 
     public String getNextId() throws Exception;
+    
+    public String getCourseID(String courseName) throws Exception;
 }

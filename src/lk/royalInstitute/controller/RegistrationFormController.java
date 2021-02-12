@@ -105,6 +105,7 @@ public class RegistrationFormController {
                         txtRegistrationID.setEditable(true);
                         txtRegistrationFee.setEditable(true);
                         setButtonState(false,false,true);
+                        loadNextRegistrationID();
                     }
                 }
             }
@@ -112,6 +113,14 @@ public class RegistrationFormController {
             e.printStackTrace();
         }
 
+    }
+
+    private void loadNextRegistrationID() {
+        try {
+            txtRegistrationID.setText(registrationBO.getNextID());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

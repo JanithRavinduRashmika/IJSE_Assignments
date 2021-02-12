@@ -61,4 +61,9 @@ public class CourseBOImpl implements CourseBO {
     public String getNextId() throws Exception {
         return courseDAO.getNextID();
     }
+
+    @Override
+    public String getCourseID(String  courseName) throws Exception {
+        return courseDAO.getCourseID(courseName);
+    }
 }

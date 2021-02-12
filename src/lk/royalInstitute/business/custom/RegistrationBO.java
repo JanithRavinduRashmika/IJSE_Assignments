@@ -16,4 +16,6 @@ public interface RegistrationBO extends SuperBO {
     public RegistrationDTO getRegistration(String id) throws Exception;
 
     public List<RegistrationDTO> getAllRegistration() throws Exception;
+
+    public String getNextID() throws Exception;
 }

@@ -12,7 +12,7 @@ public class AppInitializer extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(this.getClass().getResource("lk/royalInstitute/view/LogInForm.fxml"));
+        Parent root = FXMLLoader.load(this.getClass().getResource("lk/royalInstitute/view/MainForm.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setMaximized(false);

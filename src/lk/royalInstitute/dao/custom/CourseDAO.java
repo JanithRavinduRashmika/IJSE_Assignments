@@ -5,5 +5,7 @@ import lk.royalInstitute.entity.Course;
 
 public interface CourseDAO extends CrudDAO<Course,String> {
     public String getNextID() throws Exception;
+    
+    public String  getCourseID(String courseName) throws Exception;
 
 }

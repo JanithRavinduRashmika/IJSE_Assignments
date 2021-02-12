@@ -43,4 +43,9 @@ public class RegistrationBOImpl implements RegistrationBO {
     public List<RegistrationDTO> getAllRegistration() throws Exception {
         return null;
     }
+
+    @Override
+    public String getNextID() throws Exception {
+        return registrationDAO.getNextID();
+    }
 }

@@ -87,4 +87,12 @@ public class CourseDAOImpl implements CourseDAO {
         }
         return nextID;
     }
+
+    @Override
+    public String getCourseID(String courseName) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        NativeQuery nativeQuery = session.createNativeQuery("SELECT code FROM course WHERE courseName = ?1").setParameter(1,courseName);
+        String courseID = (String) nativeQuery.uniqueResult();
+        return courseID;
+    }
 }
