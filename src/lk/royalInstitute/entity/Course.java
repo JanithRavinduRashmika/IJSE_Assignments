@@ -1,5 +1,6 @@
 package lk.royalInstitute.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -13,7 +14,7 @@ public class Course implements SuperEntity {
     private double courseFee;
     private String duration;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", cascade = CascadeType.REMOVE)
     private List<Registration> registrations;
 
     public Course() {

@@ -14,6 +14,10 @@ public class CustomEntityTM {
         this.regNo = regNo;
     }
 
+    public CustomEntityTM(String studentId) {
+        this.studentId = studentId;
+    }
+
     public String getStudentId() {
         return studentId;
     }

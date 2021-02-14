@@ -53,7 +53,7 @@ public class RegistrationDetailsFormController {
     private TableView<CustomEntityTM> tblRegistration;
 
     @FXML
-    private TableView<?> tblStudentInAll;
+    private TableView<CustomEntityTM> tblStudentInAll;
 
     @FXML
     private JFXComboBox<String> cmbCourse;
@@ -67,16 +67,21 @@ public class RegistrationDetailsFormController {
     @FXML
     private TableColumn<?, ?> colStudentName;
 
+    @FXML
+    private TableColumn<?, ?> colAllStudentID;
+
     CourseBO courseBO = BOFactory.getInstance().getBO(BOType.COURSE);
+    QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOType.QUERY);
 
 
     public void initialize(){
         loadCourses();
 
-        colRegNo.setCellValueFactory(new PropertyValueFactory<>("regNO"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+        colRegNo.setCellValueFactory(new PropertyValueFactory<>("regNo"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentId"));
         colStudentName.setCellValueFactory(new PropertyValueFactory<>("studentName"));
 
+        colAllStudentID.setCellValueFactory(new PropertyValueFactory<>("studentId"));
 
     }
 
@@ -108,7 +113,16 @@ public class RegistrationDetailsFormController {
 
     @FXML
     void btnSARegistrationOnAction(ActionEvent event) {
-
+        ObservableList<CustomEntityTM> customEntityTMS = FXCollections.observableArrayList();
+        try {
+            List<CustomEntity> studentWhoRegisterForAllCourses = queryDAO.getStudentWhoRegisterForAllCourses();
+            for (CustomEntity student : studentWhoRegisterForAllCourses) {
+                customEntityTMS.add(new CustomEntityTM(student.getStudentId()));
+            }
+            tblStudentInAll.setItems(customEntityTMS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -127,7 +141,7 @@ public class RegistrationDetailsFormController {
 
     private void loadStudents(String courseID) throws Exception {
         ObservableList<CustomEntityTM> customEntityTMs = FXCollections.observableArrayList();
-        QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOType.QUERY);
+
         List<CustomEntity> studentDetails = queryDAO.getStudentDetails(courseID);
         for (CustomEntity customEntity : studentDetails) {
             customEntityTMs.add(new CustomEntityTM(customEntity.getStudentId(),

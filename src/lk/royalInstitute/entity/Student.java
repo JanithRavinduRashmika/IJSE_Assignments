@@ -2,6 +2,7 @@ package lk.royalInstitute.entity;
 
 import net.bytebuddy.implementation.bind.annotation.Super;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class Student implements SuperEntity {
     private String date;
     private String gender;
 
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student",cascade = CascadeType.REMOVE)
     private List<Registration> registrations;
 
     public Student() {

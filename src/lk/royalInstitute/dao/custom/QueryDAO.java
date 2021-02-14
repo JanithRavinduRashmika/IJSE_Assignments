@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface QueryDAO extends SuperDAO{
     public List<CustomEntity> getStudentDetails(String courseID) throws Exception;
+
+    public List<CustomEntity> getStudentWhoRegisterForAllCourses() throws Exception;
 }

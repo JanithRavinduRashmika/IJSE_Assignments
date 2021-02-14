@@ -14,6 +14,10 @@ public class CustomEntity{
         this.regNo = regNo;
     }
 
+    public CustomEntity(String studentId) {
+        this.studentId = studentId;
+    }
+
     public String getStudentId() {
         return studentId;
     }
