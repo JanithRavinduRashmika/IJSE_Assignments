@@ -1,6 +1,7 @@
 package lk.royalInstitute.util;
 
 import lk.royalInstitute.entity.Course;
+import lk.royalInstitute.entity.LogIn;
 import lk.royalInstitute.entity.Registration;
 import lk.royalInstitute.entity.Student;
 import org.hibernate.Session;
@@ -14,7 +15,8 @@ public class FactoryConfiguration {
         Configuration configuration = new Configuration().configure().
                 addAnnotatedClass(Student.class).
                 addAnnotatedClass(Registration.class).
-                addAnnotatedClass(Course.class);
+                addAnnotatedClass(Course.class).
+                addAnnotatedClass(LogIn.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 

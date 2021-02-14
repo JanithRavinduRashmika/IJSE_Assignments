@@ -48,6 +48,20 @@ public class QueryDAOImpl implements QueryDAO {
         for (Object[] o1 : list) {
             customEntityArrayList.add(new CustomEntity(o1[0].toString()));
         }
+        session.close();
         return customEntityArrayList;
+    }
+
+    @Override
+    public boolean isThisLogInValid(String userName, String password) throws Exception {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Query query = session.createQuery("from LogIn where userName = ?1 and password = ?2").setParameter(1, userName).setParameter(2, password);
+        Object o = query.uniqueResult();
+
+        if (o == null){
+            return false;
+        }
+
+        return true;
     }
 }
