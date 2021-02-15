@@ -132,7 +132,7 @@ public class RegistrationFormController {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR,"Student Doesnt exits.").showAndWait();
         }
 
     }

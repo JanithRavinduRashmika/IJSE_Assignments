@@ -73,6 +73,7 @@ public class StudentDAOImpl implements StudentDAO {
         List list = query.list();
         session.close();
         return list;
+
     }
 
     @Override
