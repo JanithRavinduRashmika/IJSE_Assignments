@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -43,7 +44,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtCourseID" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="126.0" layoutY="212.0" prefHeight="30.0" prefWidth="375.0" promptText="Course ID" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="135.0">
+      <JFXTextField fx:id="txtCourseID" alignment="CENTER" disable="true" labelFloat="true" layoutX="126.0" layoutY="212.0" prefHeight="30.0" prefWidth="375.0" promptText="Course ID" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="135.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -70,5 +71,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
+      <JFXComboBox fx:id="cmbCourseID" disable="true" layoutX="865.0" layoutY="135.0" onAction="#cmbCourseIDOnAction" prefHeight="30.0" prefWidth="44.0" unFocusColor="#002266" />
    </children>
 </AnchorPane>

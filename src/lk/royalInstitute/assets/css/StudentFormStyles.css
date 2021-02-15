@@ -15,10 +15,6 @@
     -fx-padding: 0 0 0 20;
 }
 
-#tblStudent{
-    -fx-background-radius: 0px 0px 50px 50px;
-}
-
 #txtName{
     -fx-background-color: white;
 }

@@ -8,3 +8,9 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+
+#lblMainForm{
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}

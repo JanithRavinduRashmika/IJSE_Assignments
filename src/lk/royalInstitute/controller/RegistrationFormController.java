@@ -1,7 +1,10 @@
 package lk.royalInstitute.controller;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +28,7 @@ import lk.royalInstitute.dto.StudentDTO;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 public class RegistrationFormController {
@@ -69,14 +73,32 @@ public class RegistrationFormController {
     private JFXButton btnDelete;
 
     @FXML
+    private JFXComboBox<String> cmbCourseID;
+
+
+    @FXML
     private JFXButton btnCheck;
     StudentBO studentBO = BOFactory.getInstance().getBO(BOType.STUDENT);
     CourseBO courseBO = BOFactory.getInstance().getBO(BOType.COURSE);
     RegistrationBO registrationBO = BOFactory.getInstance().getBO(BOType.REGISTRATION);
+
     StudentDTO student;
     CourseDTO course;
     public void initialize(){
+        loadCourses();
+    }
 
+    private void loadCourses() {
+        ObservableList<String> courses = FXCollections.observableArrayList();
+        try {
+            List<CourseDTO> allCourses = courseBO.getAllCourses();
+            for (CourseDTO allCourse : allCourses) {
+                courses.add(allCourse.getCode());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        cmbCourseID.setItems(courses);
     }
 
     @FXML
@@ -100,7 +122,7 @@ public class RegistrationFormController {
                         lblCourseName.setOpacity(1.0);
 
                         txtStudentID.setEditable(false);
-                        txtCourseID.setEditable(false);
+                        cmbCourseID.setEditable(false);
                         setFieldState(false,false,false,false);
                         txtRegistrationID.setEditable(true);
                         txtRegistrationFee.setEditable(true);
@@ -131,7 +153,7 @@ public class RegistrationFormController {
         setButtonState(true,true,false);
         setFieldState(false,false,true,true);
         txtStudentID.setEditable(true);
-        txtCourseID.setEditable(true);
+        cmbCourseID.setDisable(false);
     }
 
     @FXML
@@ -163,6 +185,8 @@ public class RegistrationFormController {
         txtRegistrationFee.clear();
         lblCourseName.setText(null);
         lblStudentName.setText(null);
+        cmbCourseID.setValue(null);
+        cmbCourseID.setDisable(true);
     }
 
     private void setButtonState(boolean newRegistration, boolean save, boolean check){
@@ -195,5 +219,11 @@ public class RegistrationFormController {
 
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();
+    }
+
+    @FXML
+    void cmbCourseIDOnAction(ActionEvent event) {
+        txtCourseID.setText(cmbCourseID.getValue().toString());
+        cmbCourseID.setValue(null);
     }
 }

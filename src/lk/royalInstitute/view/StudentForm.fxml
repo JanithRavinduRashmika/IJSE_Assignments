@@ -8,7 +8,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -99,7 +98,6 @@
          </font>
       </JFXButton>
       <JFXDatePicker fx:id="dpkDOB" defaultColor="#002266" disable="true" layoutX="404.0" layoutY="235.0" onAction="#dpkDOBOnAction" prefHeight="30.0" prefWidth="34.0" />
-      <JFXComboBox fx:id="cmbGender" disable="true" layoutX="901.0" layoutY="238.0" onAction="#cmbGenderOnAction" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" />
-      <TextField fx:id="txtSearch" layoutX="275.0" layoutY="319.0" prefHeight="30.0" prefWidth="500.0" AnchorPane.leftAnchor="207.5" AnchorPane.topAnchor="320.0" />
+      <JFXComboBox fx:id="cmbGender" disable="true" layoutX="865.0" layoutY="235.0" onAction="#cmbGenderOnAction" prefHeight="30.0" prefWidth="36.0" unFocusColor="#002266" />
    </children>
 </AnchorPane>

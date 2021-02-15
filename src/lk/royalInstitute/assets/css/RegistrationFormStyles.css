@@ -22,7 +22,7 @@
     -fx-padding: 0 0 0 20;
 }
 
-.jfx-text-field{
+.jfx-text-field ,.jfx-combo-box{
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #002266 0%,#0078D4 50%, #002266 100%);
     -fx-prompt-text-fill: white ;
     -fx-text-fill: white;
