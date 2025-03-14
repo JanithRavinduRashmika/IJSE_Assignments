@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 1</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <style>
+        body>section{
+            height: 50%;
+            width: 50%;
+            position: absolute;
+        }
+
+        body>section:nth-child(1){
+            background: red;
+            left: 0;
+            top: 0;
+        }
+
+        body>section:nth-child(2){
+            background: green;
+            right: 0;
+            top: 0
+        }
+
+        body>section:nth-child(3){
+            background: yellow;
+            left: 0;
+            bottom: 0;
+        }
+
+        body>section:nth-child(4){
+            background: deeppink;
+            right: 0;
+            bottom: 0;
+        }
+
+        body>aside{
+            background: white;
+            width: 120px;
+            height: 120px;
+            position: absolute;
+        }
+
+        body>aside:nth-child(5){
+              top: 0;
+              left: 0;
+              border-bottom-right-radius: 120px;
+        }
+
+        body>aside:nth-child(6){
+              top: 0;
+              right: 0;
+              border-bottom-left-radius: 120px;
+        }
+
+        body>aside:nth-child(7){
+               bottom: 0;
+               left: 0;
+               border-top-right-radius: 120px;
+        }
+
+        body>aside:nth-child(8){
+               bottom: 0;
+               right: 0;
+               border-top-left-radius: 120px;
+        }
+
+        body>article{
+            width: 200px;
+            height: 200px;
+            background: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        body>div{
+            width: 200px;
+            height: 100px;
+            background: white;
+            position: absolute;
+
+
+        }
+
+        body>div:nth-child(10){
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+
+        body>div:nth-child(11){
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+        }
+
+        body>section>div{
+            background: white;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            border-radius: 100px;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        body>section>div>aside{
+            background: red;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        body>article>div{
+            background: red;
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+<section>
+    <div>
+        <aside></aside>
+    </div>
+</section>
+<section>
+    <div>
+        <aside></aside>
+    </div>
+</section>
+<section>
+    <div>
+        <aside></aside>
+    </div>
+</section>
+<section>
+    <div>
+        <aside></aside>
+    </div>
+</section>
+
+<aside></aside>
+<aside></aside>
+<aside></aside>
+<aside></aside>
+
+<article>
+    <div></div>
+</article>
+
+<div></div>
+<div></div>
+
+</body>
+</html>

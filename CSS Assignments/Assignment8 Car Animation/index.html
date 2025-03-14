@@ -1,0 +1,99 @@
+<!--Car animation-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment8</title>
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        main {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: url("assets/images/sky.jpg");
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+
+        .car {
+            height: 200px;
+            width: 350px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%);
+        }
+
+        .wheel1 {
+            position: fixed;
+            width: 75px;
+            height: 75px;
+            bottom: 115px;
+            left: 490px;
+            animation: rotate 5s infinite;
+        }
+
+        .wheel2 {
+            position: fixed;
+            width: 75px;
+            height: 75px;
+            bottom: 115px;
+            left: 705px;
+            animation: rotate 5s infinite;
+        }
+
+        .road {
+            position: absolute;
+            width: 300vw;
+            height: 35%;
+            bottom: 0;
+            margin-left: 0;
+            animation: moving 5s infinite;
+        }
+
+        .city {
+            position: absolute;
+            width: 300vw;
+            height: 65%;
+            bottom: 35%;
+            margin-left: 0;
+            animation: moving 5s infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(720deg);
+            }
+            100%{
+                transform: rotate(540deg);
+            }
+        }
+
+        @keyframes moving {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-2100px);
+            }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <img class="city" src="assets/images/city.png">
+    <img class="road" src="assets/images/road.jpg">
+    <img class="car" src="assets/images/car.png">
+    <img class="wheel1" src="assets/images/wheel.png">
+    <img class="wheel2" src="assets/images/wheel.png">
+</main>
+</body>
+</html>
