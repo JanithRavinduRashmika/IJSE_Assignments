@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../assets/css/RegistrationFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.RegistrationFormController">
+   <children>
+      <AnchorPane layoutX="121.0" layoutY="59.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="46.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow height="32.86" offsetX="2.0" offsetY="5.0" radius="19.8825" spread="0.4" width="48.67" />
+               </effect>
+            </Button>
+            <JFXButton fx:id="btnNewRegistration" alignment="CENTER" buttonType="RAISED" layoutX="1018.0" layoutY="36.0" onAction="#btnNewRegistrationOnAction" prefHeight="40.0" prefWidth="150.0" text="+ New Registration" textFill="WHITE" AnchorPane.rightAnchor="65.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Label fx:id="lblRegistration" alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="26.0" prefHeight="70.0" prefWidth="600.0" text="Registrations">
+         <effect>
+            <DropShadow height="28.91" offsetX="4.0" offsetY="5.0" radius="14.14" spread="0.48" width="29.65" />
+         </effect>
+      </Label>
+      <JFXTextField fx:id="txtStudentID" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="126.0" layoutY="145.0" prefHeight="30.0" prefWidth="375.0" promptText="Student ID" unFocusColor="#002266" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtCourseID" alignment="CENTER" disable="true" labelFloat="true" layoutX="126.0" layoutY="212.0" prefHeight="30.0" prefWidth="375.0" promptText="Course ID" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtRegistrationID" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="126.0" layoutY="278.0" prefHeight="30.0" prefWidth="375.0" promptText="Registration ID" unFocusColor="#002266" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="320.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtRegistrationFee" alignment="CENTER" disable="true" editable="false" labelFloat="true" layoutX="561.0" layoutY="278.0" prefHeight="30.0" prefWidth="375.0" promptText="Registration Fee" unFocusColor="#002266" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="320.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <Label fx:id="lblStudentName" disable="true" layoutX="172.0" layoutY="429.0" opacity="0.0" prefHeight="30.0" prefWidth="375.0" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="185.0" />
+      <Label fx:id="lblCourseName" disable="true" layoutX="561.0" layoutY="212.0" opacity="0.0" prefHeight="30.0" prefWidth="375.0" stylesheets="@../assets/css/RegistrationFormStyles.css" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="185.0" />
+      <JFXButton fx:id="btnSave" alignment="CENTER" buttonType="RAISED" disable="true" layoutX="1110.0" layoutY="138.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="120.0" text="Save" textFill="WHITE" AnchorPane.rightAnchor="65.0" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnCheck" alignment="CENTER" buttonType="RAISED" disable="true" layoutX="431.0" layoutY="240.0" onAction="#btnCheckOnAction" prefHeight="25.0" prefWidth="120.0" text="Check" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbCourseID" disable="true" layoutX="865.0" layoutY="135.0" onAction="#cmbCourseIDOnAction" prefHeight="30.0" prefWidth="44.0" unFocusColor="#002266" />
+   </children>
+</AnchorPane>

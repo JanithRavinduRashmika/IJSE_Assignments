@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="1200.0" stylesheets="@../assets/css/RegistrationsDetailsFormStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.royalInstitute.controller.RegistrationDetailsFormController">
+   <children>
+      <AnchorPane layoutX="187.0" layoutY="217.0" prefHeight="100.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="lblRegistrationsDetails" alignment="CENTER" contentDisplay="CENTER" layoutX="237.0" layoutY="28.0" prefHeight="70.0" prefWidth="600.0" text="Registrations Details">
+               <effect>
+                  <DropShadow height="28.91" offsetX="4.0" offsetY="5.0" radius="14.14" spread="0.48" width="29.65" />
+               </effect>
+            </Label>
+            <Button fx:id="btnHome" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="104.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="50.0">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <DropShadow height="32.86" offsetX="2.0" offsetY="5.0" radius="19.8825" spread="0.4" width="48.67" />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="btnSearchCW" alignment="CENTER" buttonType="RAISED" layoutX="310.0" layoutY="241.0" onAction="#btnSearchCWOnAction" prefHeight="30.0" prefWidth="120.0" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSARegistration" alignment="CENTER" buttonType="RAISED" layoutX="791.0" layoutY="204.0" onAction="#btnSARegistrationOnAction" prefHeight="30.0" prefWidth="220.0" text="Student who register for all courses " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblRegistration" layoutX="140.0" layoutY="312.0" prefHeight="200.0" prefWidth="384.0">
+        <columns>
+          <TableColumn fx:id="colRegNo" prefWidth="112.33334350585938" text="RegNO" />
+          <TableColumn fx:id="colStudentId" prefWidth="106.66668701171875" text="Student  Id" />
+            <TableColumn fx:id="colStudentName" prefWidth="163.0" text="Student Name" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tblStudentInAll" layoutX="791.0" layoutY="303.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="colAllStudentID" prefWidth="199.0" text="StudentID" />
+        </columns>
+      </TableView>
+      <JFXComboBox fx:id="cmbCourse" labelFloat="true" layoutX="285.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" promptText="Select Course" />
+   </children>
+</AnchorPane>
